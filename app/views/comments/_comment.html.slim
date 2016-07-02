@@ -1,27 +1,27 @@
-div class='comments-comment-container' id="comment-#{comment.id}"
+.comments-comment-container id="comment-#{comment.id}"
   .comment-inner
     .thumb
       = image_tag 'default.jpg'
     .detail
       strong.author
-        = link_to current_user.email
+        = link_to comment.user.email
       .content
         = simple_format(comment.content)
       ul.caption
         li
-          = link_to 'reply', reply_comment_path(comment) , remote: true, class: 'comment-reply', 'data-index': comment.id, method: :post
+          = link_to 'reply',  [:reply, comment] , remote: true, class: 'comment-reply', 'data-index': comment.id, method: :post
         li
-          = link_to 'edit', edit_comment_path(comment) , remote: true, class: 'comment-reply', 'data-index': comment.id
+          = link_to 'edit',   [:edit, comment] , remote: true, class: 'comment-reply', 'data-index': comment.id
         li
           = link_to 'Delete', comment_path(comment),
               method: :delete,
               data: { confirm: 'Are you sure?' }
         li
-          - like = liked(comment, current_user)
-          = link_to like, (like != 'dislike') ? like_comment_path(comment) : dislike_comment_path(comment), method: :post
+          - like = user_signed_in?? liked(comment, current_user) : 'like'
+          = link_to like, [like, comment], method: :post
         li
-          = comment.created_at.strftime('%b %d, %Y')
-    - if comment.replies.any?
-      .reply-inner
-        - comment.replies.each do |cm|
-          = render 'comment', comment: cm
+          = format_date(comment.created_at)
+    .reply-inner
+      - if comment.replies.any?
+          - comment.replies.each do |cm|
+            = render 'comment', comment: cm

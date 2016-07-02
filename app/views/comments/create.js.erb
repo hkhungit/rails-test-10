@@ -1,5 +1,9 @@
-$('.comments-form-container').bind('ajax:success', function() {
-  var i = $(this).data('index');   
-  $('#comment-' + i).html('<%=  escape_javascript(render 'comment', :comment => @comment) %>')
-  $('.comment-form-number-' + i).remove();
-});
+var index = ('<%=@comment.parent_id%>');
+if (index == 0) {
+  $('.comment-form-number-root').before('<%= j render 'comment', :comment => @comment %>');
+  $('.comment-form-number-root textarea').val('');
+}
+else{
+  $('#comment-' + index + ' > .comment-inner > .reply-inner').append('<%= j render 'comment', :comment => @comment %>');
+  $('.comment-form-number-' + index + ' textarea').val('');
+}

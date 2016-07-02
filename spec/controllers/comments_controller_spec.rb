@@ -26,7 +26,7 @@ describe CommentsController, type: :controller do
 
     it 'creates a comment' do
       expect{ do_request }.to change{ Comment.count }.from(0).to(1)
-      expect(response).to redirect_to comments_url
+      expect(response).to redirect_to redirect_to assigns(:comment)
     end
   end  
 
@@ -43,7 +43,7 @@ describe CommentsController, type: :controller do
 
     it 'creates a comment' do
       expect{ do_request }.to change{ Comment.count }.from(0).to(1)
-      expect(response).to redirect_to comments_url
+      expect(response).to redirect_to assigns(:comment)
     end
   end  
 

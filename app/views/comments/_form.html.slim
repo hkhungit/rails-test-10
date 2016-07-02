@@ -1,9 +1,8 @@
-div class='comments-form-container comment-form-number-#{index}' data-index='#{index}'
+div class='comments-form-container comment-form-number-#{index}'
   = simple_form_for comment, remote: true, defaults: { label: false } do |f|
     .form-error
       = f.error_notification
-    .row 
+    .input-cover 
       = f.input :content
       = f.input :parent_id, :as => :hidden
-    = f.button :button, 'Comment', class: 'btn-submit', index: index
-    = f.button :button, 'Cancel' , class: 'btn-cancel', index: index
+    = f.button :button, 'Comment', class: 'btn-submit' 

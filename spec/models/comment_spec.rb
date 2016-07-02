@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Comment, type: :model do
   context 'validations' do
-    it { is_expected.to validate_presence_of :content } 
+    it { is_expected.to validate_presence_of :content }
   end
 
   context 'associations' do

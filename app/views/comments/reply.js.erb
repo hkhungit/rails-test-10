@@ -1,4 +1,3 @@
-$('.comment-reply').bind('ajax:success', function() {
-  var index = $(this).data('index');
-  $('#comment-'+index).after('<%= j (render 'form', comment: @comment.replies.new, index: @comment.id) %>')
-});
+var index = ('<%=@comment.id%>');
+$('#comment-' + index + ' > .comment-inner .comment-form-number-' + index).remove();
+$('#comment-' + index + ' > .comment-inner > .detail').after('<%= j (render 'form', comment: @comment.replies.new, index: @comment.id) %>');

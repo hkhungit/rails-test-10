@@ -1,9 +1,6 @@
 doctype html
 html
   = render 'layouts/head'
-  body
-    = render 'layouts/header'
+  body 
     #main
       = yield
-    = render 'layouts/footer'
-    = javascript_initialization
