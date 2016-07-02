@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  username: futureworkz
+  password: password
+  host: localhost
+  
+development:
+  <<: *default
+  database: rails_test_9_development
+
+test:
+  <<: *default
+  database: rails_test_9_test
