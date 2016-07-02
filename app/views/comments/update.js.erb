@@ -1,0 +1,5 @@
+$('.comments-form-container').bind('ajax:success', function() {
+  var i = $(this).data('index');  
+  $('#comment-' + i).html('<%=  escape_javascript(render 'comment', :comment => @comment) %>')
+  $('.comment-form-number-' + i).remove();
+});

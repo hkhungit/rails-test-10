@@ -1,0 +1,52 @@
+.comments-comment-container {
+  padding-top: 12px;
+  
+  .comment-inner {
+    .thumb {
+      width: 33px;
+      height: 22px;
+      float: left;
+    }  
+    
+    .detail {
+      padding-bottom: 20px;
+      border-bottom: 1px solid #cdcdcd;
+      margin-left: 50px;
+      
+      strong.author {
+        a {
+          text-decoration: none;
+          color: #5895d1;
+        }
+      }
+      
+      .content {
+        padding-top: 5px; 
+      }
+
+      .caption {
+        margin: 0;
+        padding: 10px 0;
+
+        li {
+          text-transform: capitalize; 
+          float: left;
+          color: #686868;
+          margin-right: 25px;
+          
+          &:first-child {
+            list-style: none;
+          }
+
+          a { 
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .reply-inner {
+      margin-left: 50px; 
+    }
+  }
+}

@@ -1,10 +1,9 @@
 doctype html
 html
-  head
-    title
-      | RailsTest10
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = render 'layouts/head'
   body
-    = yield
+    = render 'layouts/header'
+    #main
+      = yield
+    = render 'layouts/footer'
+    = javascript_initialization

@@ -1,0 +1,4 @@
+$('.comment-reply').bind('ajax:success', function() {
+  var index = $(this).data('index');
+  $('#comment-'+index).after('<%= j (render 'form', comment: @comment.replies.new, index: @comment.id) %>')
+});

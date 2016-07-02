@@ -1,0 +1,7 @@
+$('.comment-reply').bind('ajax:success', function() {
+  var i = $(this).data('index'); 
+  $('.comment-form-number-'+i).remove();
+  if ($('.comment-form-number-'+i).length < 1) {
+    $('#comment-'+i).after('<%= j (render 'form', comment: @comment, index: @comment.id) %>')
+  }
+});

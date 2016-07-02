@@ -1,0 +1,4 @@
+#comments-index-container
+  - @comments.each do |comment| 
+    = render 'comment', comment: comment
+  = render 'form', comment: Comment.new, index: @comments.last.id

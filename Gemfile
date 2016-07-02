@@ -11,13 +11,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'materialize-sass'
 gem 'slim', '~> 3.0', '>= 3.0.7' 
 gem 'devise'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'materialize-form' 
 gem 'factory_girl_rails' 
+gem 'rails_utils'
 gem 'listen'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'pry-rails'
